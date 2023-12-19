@@ -29,6 +29,7 @@ public class PlayerParameterController : MonoBehaviour
     public void ChangeHp(float healAmount)
     {
         _hp += healAmount;
+        Debug.Log(_hp);
     }
 
     public void ChangeAttackPower(float changeAttackPowerAmount)
