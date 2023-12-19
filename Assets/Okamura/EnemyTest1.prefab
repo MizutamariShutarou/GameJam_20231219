@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8140011822818063972}
+  - component: {fileID: -3791880023437170331}
   - component: {fileID: 7031631603511735054}
   - component: {fileID: 7460755222325827611}
   - component: {fileID: 5007086547688871757}
-  - component: {fileID: -3791880023437170331}
+  - component: {fileID: -1795408044030870010}
   m_Layer: 0
   m_Name: EnemyTest1
   m_TagString: Untagged
@@ -29,12 +30,38 @@ Transform:
   m_GameObject: {fileID: 8016414876205605004}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.07, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-3791880023437170331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8016414876205605004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17cd0e5220ee934fb1ae8a2dd7056dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hp: 2
+  _distanceSearch: 20
+  _distanceApproach: 10
+  _tolerance: 2
+  _speed: 4
+  _atkCt: 2
+  _enemy: 0
+  _deathEffect: {fileID: 0}
+  _atkDmgs:
+  - 3
+  - 6
+  - 12
+  _dmg: 0
+  _ease: 24
 --- !u!33 &7031631603511735054
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -108,19 +135,30 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &-3791880023437170331
-MonoBehaviour:
+--- !u!54 &-1795408044030870010
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8016414876205605004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e17cd0e5220ee934fb1ae8a2dd7056dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _distanceSearch: 10
-  _atkCt: 2
-  _enemy: 0
-  _deathEffect: {fileID: 0}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
