@@ -1,16 +1,21 @@
+using Cysharp.Threading.Tasks.Triggers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerParameterController), typeof(Rigidbody))]
+[RequireComponent(typeof(PlayerParameterController), typeof(PlayerController), typeof(Rigidbody))]
 public class PlayerManager : MonoBehaviour
 {
     //static PlayerManager _instance = default;
     //public PlayerManager Instance => _instance;
 
-    private Rigidbody _rb = default;
-
     private PlayerParameterController _playerParameterController = default;
+
+    private PlayerController _playerController = default;
+
+    public PlayerParameterController PlayerParameterController => _playerParameterController;
+
+    public PlayerController PlayerController => _playerController;
 
     //private void Awake()
     //{
@@ -29,6 +34,10 @@ public class PlayerManager : MonoBehaviour
     {
         _playerParameterController = GetComponent<PlayerParameterController>();
         _playerParameterController.InitializeParam();
+
+        _playerController = GetComponent<PlayerController>();
+        _playerController.Initialize(_playerParameterController);
+
     }
 
     public void ItemParamChangeActive(string parameterType, float value)

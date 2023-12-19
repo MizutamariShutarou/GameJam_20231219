@@ -15,6 +15,9 @@ public class PlayerParameter : ScriptableObject
     [SerializeField, Header("無敵時間")]
     float _invincibleTime = 0f;
 
+    [SerializeField, Header("回転補正値")]
+    float _rotateNum = 0f;
+
     #region アクセス
     /// <summary>移動速度</summary>
     public float MoveSpeed => _moveSpeed;
@@ -27,5 +30,7 @@ public class PlayerParameter : ScriptableObject
 
     /// <summary>無敵時間</summary>
     public float InvincibleTime => _invincibleTime;
+
+    public float RotateNum => _rotateNum;
     #endregion
 }
