@@ -31,8 +31,23 @@ public class PlayerManager : MonoBehaviour
         _playerParameterController.InitializeParam();
     }
 
-    public void ItemParamChangeActive(ParameterType parameterType, float value)
+    public void ItemParamChangeActive(string parameterType, float value)
     {
-        _playerParameterController.ItemEffectActive(parameterType, value);
+        if(parameterType == ParameterType.Hp.ToString())
+        {
+            _playerParameterController.ChangeHp(value);
+        }
+        else if(parameterType == ParameterType.Attack.ToString())
+        {
+            _playerParameterController.ChangeAttackPower(value);
+        }
+        else if (parameterType == ParameterType.Speed.ToString())
+        {
+            _playerParameterController.ChangeSpeed(value);
+        }
+        else
+        {
+            Debug.Log("ä˙ë“Ç≥ÇÍÇƒÇ¢Ç»Ç¢ï∂éöóÒÇ™ìnÇ≥ÇÍÇ‹ÇµÇΩÅB");
+        }
     }
 }
