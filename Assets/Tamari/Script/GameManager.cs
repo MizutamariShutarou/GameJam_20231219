@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
         {
             _instance = GetComponent<GameManager>();
             _playerManager = _player.GetComponent<PlayerManager>();
+            _playerManager.Initialize();
             DontDestroyOnLoad(gameObject);
         }
     }
