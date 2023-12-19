@@ -130,6 +130,7 @@ public class EnemyTest : MonoBehaviour
         //エネミーのキルカウントを増やす処理を呼ぶ
         if (_deathEffect != null)
         {
+            _deathEffect.transform.position = _rb.transform.position;
             Instantiate(_deathEffect);
         }
         if(_material != null)
