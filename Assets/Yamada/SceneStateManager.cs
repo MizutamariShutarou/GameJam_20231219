@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneStateManager : MonoBehaviour
 {
-    [SerializeField] string HP;
-
     public static SceneStateManager instance;
 
     private void Awake()
