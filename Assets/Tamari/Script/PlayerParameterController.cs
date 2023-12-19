@@ -36,7 +36,7 @@ public class PlayerParameterController : MonoBehaviour
         _attackPower += changeAttackPowerAmount;
     }
 
-    public void ChangeSpeedUpPower(float changeSpeedAmount)
+    public void ChangeSpeed(float changeSpeedAmount)
     {
         _moveSpeed += changeSpeedAmount;
     }
