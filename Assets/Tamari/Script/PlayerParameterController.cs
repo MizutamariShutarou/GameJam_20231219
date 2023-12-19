@@ -26,16 +26,18 @@ public class PlayerParameterController : MonoBehaviour
         _moveSpeed = _playerParam.MoveSpeed;
     }
 
-    public void ItemEffectActive(ParameterType parameterType, float value)
+    public void ChangeHp(float healAmount)
     {
-        switch (parameterType)
-        {
-            case ParameterType.Hp:
-                _hp = (0 < value) ? Mathf.Min(_playerParam.MaxHP, _hp + value) : Mathf.Max(0, _hp - value);
-                break;
-            default:
-                Debug.LogError("そのパラメーターを操作する処理が書かれていません");
-                break;
-        }
+        _hp += healAmount;
+    }
+
+    public void ChangeAttackPower(float changeAttackPowerAmount)
+    {
+        _attackPower += changeAttackPowerAmount;
+    }
+
+    public void ChangeSpeedUpPower(float changeSpeedAmount)
+    {
+        _moveSpeed += changeSpeedAmount;
     }
 }
