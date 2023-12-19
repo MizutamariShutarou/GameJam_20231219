@@ -25,9 +25,4 @@ public class SceneStateManager : MonoBehaviour
         SceneManager.LoadScene(LoadSceneName.ToString());
     }
 
-    void Start()
-    {
-        SceneStateManager.instance.LoadScene(SceneType.Main);
-    }
-
 }
