@@ -1,6 +1,9 @@
 public enum SceneType 
 {
     Title,
-    Battle,
-    Main
+    Main,
+    prologue,
+    Dream,
+    Real,
+    Result
 }

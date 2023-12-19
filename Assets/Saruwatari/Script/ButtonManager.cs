@@ -10,6 +10,7 @@ public class ButtonManager : MonoBehaviour
 
     public void GameStart()
     {
+        SceneStateManager.instance.LoadScene(SceneType.Main);
         Title.SetActive(false);
     }
 
@@ -34,6 +35,22 @@ public class ButtonManager : MonoBehaviour
     /*-----------------------------------*/
     public void ReturnTitle()
     {
-        Result.SetActive(false);
+        SceneStateManager.instance.LoadScene(SceneType.Title);
+        //Result.SetActive(false);
+    }
+
+    public void ToReal()
+    {
+        SceneStateManager.instance.LoadScene(SceneType.Real);
+    }
+        
+    public void ToDream()
+    {
+        SceneStateManager.instance.LoadScene(SceneType.Dream);
+    }
+
+    public void ToResult()
+    {
+        SceneStateManager.instance.LoadScene(SceneType.Result);
     }
 }

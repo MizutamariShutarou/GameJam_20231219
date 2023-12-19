@@ -20,14 +20,9 @@ public class SceneStateManager : MonoBehaviour
         }
     }
 
-    private void LoadScene(SceneType LoadSceneName)
+    public void LoadScene(SceneType LoadSceneName)
     {
         SceneManager.LoadScene(LoadSceneName.ToString());
-    }
-
-    void Start()
-    {
-        SceneStateManager.instance.LoadScene(SceneType.Main);
     }
 
 }
