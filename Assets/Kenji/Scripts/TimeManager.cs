@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
-public class TimeMana : MonoBehaviour
+public class TimeManager : MonoBehaviour
 {
 
     //　トータル制限時間
@@ -17,6 +17,8 @@ public class TimeMana : MonoBehaviour
     //　前回Update時の秒数
     private float oldSeconds;
     private Text TimeText;
+
+    public float TotalTime => totalTime;
 
     void Start()
     {
