@@ -18,6 +18,8 @@ public class TimeManager : MonoBehaviour
     private float oldSeconds;
     private Text TimeText;
 
+    public float TotalTime => totalTime;
+
     void Start()
     {
         totalTime = minute * 60 + seconds;
@@ -57,5 +59,6 @@ public class TimeManager : MonoBehaviour
         //Å@çƒê›íË
         minute = (int)totalTime / 60;
         seconds = totalTime - 60f;
+        Debug.Log(totalTime);
     }
 }
