@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public int DreamLevel => _dreamLevel;
 
     [SerializeField]
-    int MixLevel = 6; 
+    private int MaxLevel = 6; 
 
     private void Awake()
     {
@@ -39,8 +39,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void Start()
+    private void Start()
     {
-        _dreamLevel =  Random.Range(1, MixLevel);
+        _dreamLevel =  Random.Range(1, MaxLevel);
     }
 }

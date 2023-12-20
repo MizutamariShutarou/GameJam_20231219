@@ -19,8 +19,8 @@ public class PlayerManager : MonoBehaviour, IDamage
 
     public void AddDamage(float damageValue)
     {
-        _playerParameterController.ChangeHp(damageValue);
-        if(_playerParameterController.HP <= 0)
+        _playerParameterController.Damage(damageValue);
+        if(PlayerParameterController.HP <= 0)
         {
             Debug.Log("Ž€–S");
         }
