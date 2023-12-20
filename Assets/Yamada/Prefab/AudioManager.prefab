@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7720301719711833775}
   - component: {fileID: 6239738907669810873}
   - component: {fileID: 5842523814804577119}
+  - component: {fileID: 3469228009169089452}
+  - component: {fileID: 3644712038180966048}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: AudioManager
@@ -44,7 +46,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c1506932f3ea3a14cbcc61a9b21ce121, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -140,7 +142,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: feec38ce95d03f44ab9fd6829671c16b, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -238,5 +240,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87d6526bae746d74d978672165997159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmAudioSource: {fileID: 0}
-  seAudioSource: {fileID: 0}
+  bgmAudioSource: {fileID: 7720301719711833775}
+  seAudioSource: {fileID: 6239738907669810873}
+--- !u!114 &3469228009169089452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8579201505932546456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e81b29f55c683a4896eeb829456c85f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioManager: {fileID: 5842523814804577119}
+  Title_BGM: {fileID: 8300000, guid: c1506932f3ea3a14cbcc61a9b21ce121, type: 3}
+  ScaryDreams_BGM: {fileID: 8300000, guid: feec38ce95d03f44ab9fd6829671c16b, type: 3}
+  PleasantDreams_BGM: {fileID: 8300000, guid: 7c127355cd411794f86f8531819a78f2, type: 3}
+  Midnight_BGM: {fileID: 8300000, guid: 815c87292e34f2646b93c07f85fb97aa, type: 3}
+--- !u!114 &3644712038180966048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8579201505932546456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d47f9d5376b7b34894e369a3c23153d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioManager: {fileID: 5842523814804577119}
+  Swith_SE: {fileID: 8300000, guid: 1c7a1a29f82d44744bdaaf1350d4fd31, type: 3}
+  Flapping_SE: {fileID: 8300000, guid: d5008ee7748928d489b200a7febc3c0b, type: 3}
+  Decision_SE: {fileID: 8300000, guid: 61398718a68b05b4a993fdee363147cf, type: 3}
+  Damage_SE: {fileID: 8300000, guid: 8c73fbe8189760d4888461e5edcab048, type: 3}
+  Attack_SE: {fileID: 8300000, guid: 75ec954489bd6f6479787e2c719057f5, type: 3}
