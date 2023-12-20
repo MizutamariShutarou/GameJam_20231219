@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,8 +9,13 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance => _instance;
 
+    private bool _isActive = default;
+
     [SerializeField]
     private GameObject _player = default;
+
+    [SerializeField]
+    private Fade _fade = default;
 
     private PlayerManager _playerManager = default;
 
@@ -41,6 +47,17 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        _dreamLevel =  Random.Range(1, MaxLevel);
+        _dreamLevel = UnityEngine.Random.Range(1, MaxLevel);
     }
+
+    public void FadeIn(Action action)
+    {
+        _fade.FadeIn(action);
+    }
+
+    public void FadeOut(Action action)
+    {
+        _fade.FadeOut(action);
+    }
+
 }
