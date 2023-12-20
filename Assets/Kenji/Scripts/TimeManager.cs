@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
-public class CountDownTimer : MonoBehaviour
+public class TimeManager : MonoBehaviour
 {
 
     //　トータル制限時間
