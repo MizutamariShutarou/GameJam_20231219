@@ -16,7 +16,7 @@ public class ButtonManager : MonoBehaviour
         //_fade.FadeIn();
         //await UniTask.Delay(TimeSpan.FromSeconds(_fade._fadeOutTime));
         //SceneStateManager.instance.LoadScene(SceneType.Main);
-        GameManager.Instance.FadeIn(() => SceneStateManager.instance.LoadScene(SceneType.Main));
+        GameManager.Instance.FadeIn(() => SceneStateManager.instance.LoadScene(SceneType.Dream));
     }
 
     public void Credit()

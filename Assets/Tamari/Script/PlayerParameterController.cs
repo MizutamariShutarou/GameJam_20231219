@@ -7,11 +7,11 @@ public class PlayerParameterController : MonoBehaviour
 
     private static float _moveSpeed = default;
 
-    private static float _hp = default;
+    public static float _hp = default;
 
-    private static float _attackPower = default;
+    public static float _attackPower = default;
 
-    private float _rotateNum = default;
+    public float _rotateNum = default;
 
     public static float MoveSpeed => _moveSpeed;
 
@@ -43,15 +43,13 @@ public class PlayerParameterController : MonoBehaviour
 
     public void ChangeAttackPower(float changeAttackPowerAmount)
     {
-        _attackPower = (0 < changeAttackPowerAmount) ?
-            Mathf.Min(_playerParam.FirstAttackPower, _attackPower + changeAttackPowerAmount)
-                : Mathf.Max(_playerParam.FirstAttackPower, _attackPower + changeAttackPowerAmount);
+        _attackPower = _attackPower + changeAttackPowerAmount;
+        Debug.Log(_attackPower);
     }
 
     public void ChangeSpeed(float changeSpeedAmount)
     {
-        _moveSpeed = (0 < changeSpeedAmount) ?
-            Mathf.Min(_playerParam.MoveSpeed, _moveSpeed + changeSpeedAmount)
-                : Mathf.Max(_playerParam.MoveSpeed, _moveSpeed + changeSpeedAmount);
+        _moveSpeed = _moveSpeed + changeSpeedAmount;
+        Debug.Log(_moveSpeed);
     }
 }

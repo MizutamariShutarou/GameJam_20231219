@@ -21,6 +21,7 @@ public class DreamManager : MonoBehaviour
         if (PlayerParameterController.HP <= 0)
         {
             SceneStateManager.instance.LoadScene(SceneType.Result);
+            _isChanged = true;
             return;
         }
         if (Input.GetKeyDown(KeyCode.Space))

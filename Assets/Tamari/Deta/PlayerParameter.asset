@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf7df9e26484b449b80fb2b99b1ff62, type: 3}
   m_Name: PlayerParameter
   m_EditorClassIdentifier: 
-  _moveSpeed: 4
+  _moveSpeed: 7
   _maxHP: 100
   _firstAttackPower: 10
   _invincibleTime: 1

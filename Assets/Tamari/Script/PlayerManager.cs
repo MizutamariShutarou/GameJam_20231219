@@ -17,6 +17,8 @@ public class PlayerManager : MonoBehaviour, IDamage
 
     public PlayerController PlayerController => _playerController;
 
+    static int num = 0;
+
     public void AddDamage(float damageValue)
     {
         _playerParameterController.Damage(damageValue);
@@ -42,10 +44,14 @@ public class PlayerManager : MonoBehaviour, IDamage
     public void Initialize()
     {
         _playerParameterController = GetComponent<PlayerParameterController>();
-        _playerParameterController.InitializeParam();
+        if(num == 0)
+        {
+            _playerParameterController.InitializeParam();
+        }
 
         _playerController = GetComponent<PlayerController>();
         _playerController.Initialize(_playerParameterController);
+        num++;
 
     }
 
