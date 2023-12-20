@@ -20,7 +20,7 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         _player = GameObject.FindWithTag("Player");
-        _enteredSpawnCT = _spawnCTs[GameManager.Instance.DreamLevel];
+        _enteredSpawnCT = _spawnCTs[GameManager.Instance.DreamLevel - 1];
     }
 
     void Update()
