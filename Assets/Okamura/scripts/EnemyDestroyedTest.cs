@@ -1,25 +1,22 @@
 using DG.Tweening;
-using System.Collections;
 using UnityEngine;
 
 public class EnemyDestroyedTest : MonoBehaviour
 {
     [SerializeField] float _fadeTime = 0.6f;
-    Material _material;
+    MeshRenderer _meshRen;
     void Start()
     {
-        _material = GetComponent<Material>();
-        StartCoroutine(IFade());
+        _meshRen = GetComponent<MeshRenderer>();
+        _meshRen.material.DOFade(0, _fadeTime).OnComplete(Kill);
     }
-    IEnumerator IFade()
+    void Kill()
     {
         //animator‚Ì„ˆÚ‚Ìˆ—‚ğ‚±‚±‚É‘‚­
-        _material.DOFade(0, _fadeTime);
-        yield return new WaitForSeconds(_fadeTime);
-        if (_material != null)
+        if (_meshRen != null)
         {
-            Destroy(_material);
-            _material = null;
+            Destroy(_meshRen);
+            _meshRen = null;
         }
         Destroy(this.gameObject);
     }

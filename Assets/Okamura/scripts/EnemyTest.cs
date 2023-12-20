@@ -2,7 +2,6 @@ using DG.Tweening;
 using System.Collections;
 using Unity.Collections;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class EnemyTest : MonoBehaviour, IDamage
 {
@@ -34,13 +33,13 @@ public class EnemyTest : MonoBehaviour, IDamage
     GameObject _player;
     ScoreManager _scoreManager;
     Rigidbody _rb;
-    Material _material;
+    MeshRenderer _meshRen;
     bool _attackable = true;
     void Start()
     {
         _player = GameObject.FindWithTag("Player");
         _rb = GetComponent<Rigidbody>();
-        _material = GetComponent<Material>();
+        _meshRen = GetComponent<MeshRenderer>();
         _dmg = _atkDmgs[Random.Range(0, _atkDmgs.Length - 1)];
         _scoreManager = GameObject.FindWithTag("ScoreManager").GetComponent<ScoreManager>();
     }
@@ -147,10 +146,10 @@ public class EnemyTest : MonoBehaviour, IDamage
             _deathEffect.transform.position = _rb.transform.position;
             Instantiate(_deathEffect);
         }
-        if(_material != null)
+        if(_meshRen != null)
         {
-            Destroy(_material);
-            _material = null;
+            Destroy(_meshRen);
+            _meshRen = null;
         }
         Destroy(this.gameObject);
     }
