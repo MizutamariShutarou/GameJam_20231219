@@ -126,9 +126,6 @@ public class EnemyTest : MonoBehaviour, IDamage
         _hp -= damageValue;
         StartCoroutine(IDamaged(0.3f));
     }
-    public void Damaged(int dmg)
-    {
-    }
     IEnumerator IDamaged(float knockbackTime)
     {
         _rb.transform.DOMove((-_rb.transform.forward + new Vector3(0, _knockbackY, 0 )) * _knockbackValue, knockbackTime);
