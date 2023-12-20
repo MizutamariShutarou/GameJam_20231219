@@ -1000,6 +1000,34 @@ PrefabInstance:
       propertyPath: _spawnMinDistance
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 2818402205985395264, guid: 80e8c0ec677269b4c94e3fa8a9ce553d, type: 3}
+      propertyPath: _spawnCTs.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818402205985395264, guid: 80e8c0ec677269b4c94e3fa8a9ce553d, type: 3}
+      propertyPath: _spawnCTs.Array.data[0]
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818402205985395264, guid: 80e8c0ec677269b4c94e3fa8a9ce553d, type: 3}
+      propertyPath: _spawnCTs.Array.data[1]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818402205985395264, guid: 80e8c0ec677269b4c94e3fa8a9ce553d, type: 3}
+      propertyPath: _spawnCTs.Array.data[2]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818402205985395264, guid: 80e8c0ec677269b4c94e3fa8a9ce553d, type: 3}
+      propertyPath: _spawnCTs.Array.data[3]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818402205985395264, guid: 80e8c0ec677269b4c94e3fa8a9ce553d, type: 3}
+      propertyPath: _spawnCTs.Array.data[4]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818402205985395264, guid: 80e8c0ec677269b4c94e3fa8a9ce553d, type: 3}
+      propertyPath: _spawnCTs.Array.data[5]
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6840092414298363505, guid: 80e8c0ec677269b4c94e3fa8a9ce553d, type: 3}
       propertyPath: m_Name
       value: Spawner
@@ -1010,7 +1038,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6931768253947883684, guid: 80e8c0ec677269b4c94e3fa8a9ce553d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.3
+      value: -2.1
       objectReference: {fileID: 0}
     - target: {fileID: 6931768253947883684, guid: 80e8c0ec677269b4c94e3fa8a9ce553d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1018,7 +1046,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6931768253947883684, guid: 80e8c0ec677269b4c94e3fa8a9ce553d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.8
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6931768253947883684, guid: 80e8c0ec677269b4c94e3fa8a9ce553d, type: 3}
       propertyPath: m_LocalRotation.w
