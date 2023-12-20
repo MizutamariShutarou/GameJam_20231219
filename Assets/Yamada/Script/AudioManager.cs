@@ -12,6 +12,9 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
+        bgmAudioSource.Stop();
+        seAudioSource.Stop();
+
         if (instance == null)
         {
             instance = this;
