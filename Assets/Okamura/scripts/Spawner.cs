@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [Tooltip("エネミーの生成可能数")]
-    [SerializeField] int _enemyLimit = 20;
+    //[Tooltip("エネミーの生成可能数")]
+    //[SerializeField] int _enemyLimit = 20;
     [Tooltip("エネミーの生成秒数の一覧")]
     [SerializeField] float[] _spawnCTs = { 3, 2, 1, 0.8f, 0.5f, 0.2f  };
     [Tooltip("現在のエネミーの生成秒数")]
@@ -20,7 +20,7 @@ public class Spawner : MonoBehaviour
     float _timer = 0;
     GameObject _player;
     GameObject _nowSpawn;
-    int _enemyCnt = 0;
+    //int _enemyCnt = 0;
     void Start()
     {
         _player = GameObject.FindWithTag("Player");
@@ -40,10 +40,10 @@ public class Spawner : MonoBehaviour
                 spawnPos += (spawnPos - _player.transform.position).normalized * _spawnMinDistance;
             }
             _nowSpawn.transform.position = spawnPos;
-            if (_spawnObj != null && _enemyCnt <= _enemyLimit)
+            if (_spawnObj != null)// && _enemyCnt <= _enemyLimit)
             {
                 Instantiate(_nowSpawn);
-                _enemyCnt++;
+                //_enemyCnt++;
             }
             _timer = 0;
         }
@@ -53,8 +53,8 @@ public class Spawner : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(this.transform.position, _spawnSize * 2);
     }
-    public void DecreaseEnmCnt()
-    {
-        _enemyCnt--;
-    } 
+    //public void DecreaseEnmCnt()
+    //{
+    //    _enemyCnt--;
+    //} 
 }
