@@ -7,18 +7,16 @@ using System;
 
 public class ButtonManager : MonoBehaviour
 {
-    public GameObject Title;
     public GameObject Creditimag;
-    public GameObject Result;
-
     [SerializeField]
     Fade _fade;
 
     async void GameStart()
     {
-        _fade.FadeIn();
-        await UniTask.Delay(TimeSpan.FromSeconds(_fade._fadeOutTime));
-        SceneStateManager.instance.LoadScene(SceneType.Main);
+        //_fade.FadeIn();
+        //await UniTask.Delay(TimeSpan.FromSeconds(_fade._fadeOutTime));
+        //SceneStateManager.instance.LoadScene(SceneType.Main);
+        GameManager.Instance.FadeIn(() => SceneStateManager.instance.LoadScene(SceneType.Main));
     }
 
     public void Credit()
