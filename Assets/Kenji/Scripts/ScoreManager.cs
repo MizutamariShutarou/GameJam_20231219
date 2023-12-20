@@ -36,5 +36,4 @@ public class ScoreManager : MonoBehaviour
             Debug.Log("“¾“_XVŠ®—¹");
         }
     }
-    
 }
