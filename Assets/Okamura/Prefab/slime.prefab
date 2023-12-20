@@ -173,3 +173,5 @@ MonoBehaviour:
   _ease: 24
   _knockbackValue: 0.7
   _knockbackY: 1
+  _gizmoRadius: 1.71
+  _gizmoLength: 1.63

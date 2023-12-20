@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour
     [Tooltip("エネミーの生成可能数")]
     [SerializeField] int _enemyLimit = 20;
     [Tooltip("エネミーの生成秒数の一覧")]
-    [SerializeField] float[] _spawnCTs = { 7, 6, 5, 4, 3, 2 };
+    [SerializeField] float[] _spawnCTs = { 3, 2, 1, 0.8f, 0.5f, 0.2f  };
     [Tooltip("現在のエネミーの生成秒数")]
     [SerializeField, ReadOnly] float _enteredSpawnCT = 4;
     [Tooltip("生成するエネミー")]
