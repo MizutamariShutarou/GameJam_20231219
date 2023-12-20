@@ -25,7 +25,7 @@ public class DreamManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GameManager.Instance.TimeManager.DecreaseTimere();
+            GameManager.Instance.TimeManager.ReduceTimere();
             SceneStateManager.instance.LoadScene(SceneType.RealWorld);
             _isChanged = true;
         }
