@@ -18,7 +18,11 @@ public class GameManager : MonoBehaviour
     public PlayerManager PlayerManager => _playerManager;
 
      
-    public int DreamLevel;
+    private int _dreamLevel;
+    public int DreamLevel => _dreamLevel;
+
+    [SerializeField]
+    int MixLevel = 6; 
 
     private void Awake()
     {
@@ -37,6 +41,6 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        DreamLevel =  Random.Range(1,6);
+        _dreamLevel =  Random.Range(1, MixLevel);
     }
 }
