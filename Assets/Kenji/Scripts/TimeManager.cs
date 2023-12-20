@@ -18,6 +18,9 @@ public class TimeManager : MonoBehaviour
     private float oldSeconds;
     private Text TimeText;
 
+    /// <summary>true の時は一時停止とする</summary>
+    bool _pauseFlg = false;
+
     public float TotalTime => totalTime;
 
     void Start()
@@ -53,11 +56,41 @@ public class TimeManager : MonoBehaviour
         {
             Debug.Log("制限時間終了");
         }
+
+        if (Input.GetMouseButtonDown(0)) 
+        {
+            PauseResume();
+        }
     }
-    public void ReduceTimere()
+    /// <summary>
+    /// 一時停止・再開を切り替える
+    /// </summary>
+    void PauseResume()
     {
-        //　再設定
-        minute = (int)totalTime / 60;
-        seconds = totalTime - 60f;
+        _pauseFlg = !_pauseFlg;
+
+        // 全ての GameObject を取ってきて、IPause を継承したコンポーネントが追加されていたら Pause または Resume を呼んでいる。
+        // 本来は tag などで絞り込んだ方がよいでしょう。
+        var objects = FindObjectsOfType<GameObject>();
+
+        foreach (var o in objects)
+        {
+            IPause i = o.GetComponent<IPause>();
+
+            if (_pauseFlg)
+            {
+                i?.Pause();     
+            }
+            else
+            {
+                i?.Resume();   
+            }
+        }
     }
+    //public void ReduceTimere()
+    //{
+    //    //　再設定
+    //    minute = (int)totalTime / 60;
+    //    seconds = totalTime - 60f;
+    //}
 }
