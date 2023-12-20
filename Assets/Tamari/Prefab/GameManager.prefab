@@ -44,4 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39d974f5d9d0d84e8b2337ae517cfba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 5494019507464225431, guid: 64f4326792cd37f4ebcefa10bec7c86d, type: 3}
+  _player: {fileID: 1409815864358127334, guid: 42b2854c8d6c4d24ca82e06bc187bef7, type: 3}
+  _timeManager: {fileID: 0}
+  _fade: {fileID: 0}
+  MaxLevel: 6

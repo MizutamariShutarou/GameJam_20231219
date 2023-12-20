@@ -6,8 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerParameterController), typeof(PlayerController), typeof(Rigidbody))]
 public class PlayerManager : MonoBehaviour, IDamage
 {
-    //static PlayerManager _instance = default;
-    //public PlayerManager Instance => _instance;
+    static PlayerManager _instance = default;
+    public PlayerManager Instance => _instance;
 
     private PlayerParameterController _playerParameterController = default;
 
@@ -26,18 +26,18 @@ public class PlayerManager : MonoBehaviour, IDamage
         }
     }
 
-    //private void Awake()
-    //{
-    //    if(Instance == null)
-    //    {
-    //        _instance = this;
-    //        Initialize();
-    //    }
-    //    else
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //}
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            _instance = this;
+            Initialize();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void Initialize()
     {
