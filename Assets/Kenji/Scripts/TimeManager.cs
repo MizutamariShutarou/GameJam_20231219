@@ -52,7 +52,7 @@ public class CountDownTimer : MonoBehaviour
             Debug.Log("§ŒÀŠÔI—¹");
         }
     }
-    public void LoadScene(string sceneName)
+    public void DecreaseTimere()
     {
         //@Äİ’è
         minute = (int)totalTime / 60;
