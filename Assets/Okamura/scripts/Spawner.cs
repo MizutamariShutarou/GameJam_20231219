@@ -30,9 +30,9 @@ public class Spawner : MonoBehaviour
         {
             Vector3 spawnPosRandom = new Vector3(Random.Range(-_spawnSize.x, _spawnSize.x), 0, Random.Range(-_spawnSize.z, _spawnSize.z));
             Vector3 spawnPos = this.transform.position - spawnPosRandom + new Vector3(0, _spawnY, 0);
-            if (spawnPos.magnitude <= _spawnMinDistance)
+            if ((spawnPos - _player.transform.position).magnitude <= _spawnMinDistance)
             {
-                spawnPos += (_player.transform.position - spawnPosRandom).normalized * _spawnMinDistance;
+                spawnPos += (spawnPos - _player.transform.position).normalized * _spawnMinDistance;
             }
             _spawnObj.transform.position = spawnPos;
             if (_spawnObj != null)
