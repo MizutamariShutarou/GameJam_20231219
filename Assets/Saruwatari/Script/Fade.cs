@@ -24,7 +24,7 @@ public class Fade : MonoBehaviour
         
     }
 
-    public void FadeIn(Action callback)
+    public void FadeIn(Action callback = default)
     {
         _image.DOFade(1f, _fadeInTime).OnComplete(() => ActiveEvent(callback));
     }
@@ -37,7 +37,7 @@ public class Fade : MonoBehaviour
         //SceneManager.LoadScene(sceneNum);
     }
 
-    private void ActiveEvent(Action callback)
+    private void ActiveEvent(Action callback = default)
     {
         _callback = callback;
         _callback?.Invoke();
