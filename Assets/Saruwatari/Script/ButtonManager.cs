@@ -48,7 +48,7 @@ public class ButtonManager : MonoBehaviour
 
     public void ToReal()
     {
-        SceneStateManager.instance.LoadScene(SceneType.Real);
+        SceneStateManager.instance.LoadScene(SceneType.RealWorld);
     }
         
     public void ToDream()
