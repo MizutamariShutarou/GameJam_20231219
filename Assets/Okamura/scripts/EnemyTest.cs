@@ -1,8 +1,6 @@
 using DG.Tweening;
 using System.Collections;
-using System.Collections.Generic;
 using Unity.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyTest : MonoBehaviour, IDamage
@@ -40,7 +38,7 @@ public class EnemyTest : MonoBehaviour, IDamage
         _player = GameObject.FindWithTag("Player");
         _rb = GetComponent<Rigidbody>();
         _material = GetComponent<Material>();
-        _dmg = _atkDmgs[UnityEngine.Random.Range(0, _atkDmgs.Length - 1)];
+        _dmg = _atkDmgs[Random.Range(0, _atkDmgs.Length - 1)];
     }
     void Update()
     {
@@ -104,8 +102,11 @@ public class EnemyTest : MonoBehaviour, IDamage
         if(Physics.SphereCast(transform.position, 0.5f, transform.forward, out hit, 0.5f, LayerMask.GetMask("Player")))
         {
             hit.collider.gameObject.TryGetComponent(out IDamage player);
-            player.AddDamage(_dmg);
-            Debug.Log(hit.transform.name);
+            if (player != null) 
+            {
+                player.AddDamage(_dmg);
+            }
+            //Debug.Log(hit.transform.name);
         }
     }
     private void OnDrawGizmos()
