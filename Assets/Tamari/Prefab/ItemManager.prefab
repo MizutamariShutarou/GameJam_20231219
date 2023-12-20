@@ -47,5 +47,5 @@ MonoBehaviour:
   _sound: {fileID: 0}
   _recoverLife: 10
   _changeValueInterval: 0.5
-  _speedUp: 1.5
+  _speedUp: 2
   _attackUp: 2

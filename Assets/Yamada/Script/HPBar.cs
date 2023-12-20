@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HPbar : MonoBehaviour
 {
     int MaxHP = 100;
-    int currentHP;
+    float currentHP;
 
     public Slider slider;
 
@@ -18,9 +18,11 @@ public class HPbar : MonoBehaviour
 
     private void Update()
     {
-        if(slider.value >= 0)
+        currentHP = PlayerParameterController._hp / MaxHP;
+        slider.value = currentHP;
+        if (slider.value >= 0)
         {
-            slider.value = PlayerParameterController.HP;
+           
         }
     }
 }

@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 57b5da0d20224ba4fae56c1590e2e8f9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.643
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 57b5da0d20224ba4fae56c1590e2e8f9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -247,6 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerParam: {fileID: 11400000, guid: 29982abcba0928d4d97253ef720ef813, type: 2}
+  _rotateNum: 10
 --- !u!114 &4594571480597881227
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -32,7 +32,9 @@ public class GameManager : MonoBehaviour
     public int DreamLevel => _dreamLevel;
 
     [SerializeField]
-    private int MaxLevel = 6; 
+    private int MaxLevel = 6;
+
+    int num = 0;
 
     private void Awake()
     {
