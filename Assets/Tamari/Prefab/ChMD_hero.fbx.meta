@@ -16,7 +16,8 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'LeftLowerLeg' not found\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -24,7 +25,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -82,7 +83,122 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: ChMD_hero(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ChMD_hero
+      parentName: ChMD_hero(Clone)
+      position: {x: -0, y: 0, z: 0.008630745}
+      rotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: body
+      parentName: ChMD_hero
+      position: {x: -0.00017033002, y: 0.09929239, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 6.250189, y: 6.250189, z: 6.250189}
+    - name: ear
+      parentName: ChMD_hero
+      position: {x: 0.0063109454, y: 0.15468964, z: 0.000088583016}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 6.250189, y: 6.250189, z: 6.250189}
+    - name: huku
+      parentName: ChMD_hero
+      position: {x: -0.00049654365, y: 0.09485442, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 7.6730046, y: 7.6730046, z: 7.6730046}
+    - name: pants
+      parentName: ChMD_hero
+      position: {x: -0.00016313567, y: 0.09929239, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 7.3579865, y: 7.3579865, z: 7.3579865}
+    - name: boots
+      parentName: ChMD_hero
+      position: {x: -0.00027440692, y: 0.09929239, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 6.250189, y: 6.250189, z: 6.250189}
+    - name: hair
+      parentName: ChMD_hero
+      position: {x: -0.029444084, y: 0.18515866, z: 0}
+      rotation: {x: 0, y: 0, z: 0.20689206, w: 0.9783638}
+      scale: {x: 6.4470596, y: 6.4470596, z: 2.0810907}
+    - name: eye
+      parentName: ChMD_hero
+      position: {x: -0.021090008, y: 0.14978701, z: -0.00009881615}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: hair2
+      parentName: ChMD_hero
+      position: {x: -0.02388142, y: 0.18748318, z: -0.017677648}
+      rotation: {x: -0.063929975, y: -0.30231598, z: 0.19676708, w: 0.9304842}
+      scale: {x: 6.3697467, y: 6.3697467, z: 2.0561345}
+    - name: hair6
+      parentName: ChMD_hero
+      position: {x: -0.006733823, y: 0.17030929, z: -0.0015140536}
+      rotation: {x: -0.13714184, y: -0.64852464, z: 0.15490785, w: 0.7325377}
+      scale: {x: 6.334861, y: 6.334861, z: 2.0448735}
+    - name: hair5
+      parentName: ChMD_hero
+      position: {x: 0.013219056, y: 0.16416775, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 6.560375, y: 6.560375, z: 6.560375}
+    - name: hair3
+      parentName: ChMD_hero
+      position: {x: -0.00719317, y: 0.16361448, z: 0.00055023667}
+      rotation: {x: 0.070742585, y: 0.6739277, z: 0.22588591, w: 0.69985175}
+      scale: {x: 6.3266025, y: 6.3266025, z: 2.0422077}
+    - name: hair4
+      parentName: ChMD_hero
+      position: {x: -0.009240509, y: 0.20040785, z: 0.010404466}
+      rotation: {x: 0.78998625, y: -0.0011585387, z: -0.51489455, w: 0.33287233}
+      scale: {x: 2.6791365, y: 2.6791365, z: 0.86481696}
+    - name: matsuge
+      parentName: ChMD_hero
+      position: {x: -0.024724383, y: 0.153959, z: 0}
+      rotation: {x: 0, y: -0, z: -0.025464792, w: 0.99967575}
+      scale: {x: 6.250189, y: 6.250189, z: 6.250189}
+    - name: hane
+      parentName: ChMD_hero
+      position: {x: 0.017600399, y: 0.12067636, z: 0.000011390447}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: belt
+      parentName: ChMD_hero
+      position: {x: 0.0013565528, y: 0.10690233, z: 0.004329004}
+      rotation: {x: 0.3839596, y: -0, z: -0, w: 0.9233499}
+      scale: {x: 3.166917, y: 5.0765996, z: 3.166917}
+    - name: ken
+      parentName: ChMD_hero
+      position: {x: -0.00020856754, y: 0.0760398, z: 0.028218297}
+      rotation: {x: -0.21155703, y: 0, z: -0, w: 0.9773657}
+      scale: {x: 2.2897096, y: 1.2123904, z: 0.37901932}
+    - name: sword
+      parentName: ChMD_hero(Clone)
+      position: {x: -0.051948365, y: -0.027067993, z: -0.17777525}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCylinder1
+      parentName: sword
+      position: {x: 0.000002207756, y: -0.026804892, z: 0}
+      rotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+      scale: {x: 0.15764922, y: 1.0355521, z: 0.23333411}
+    - name: pCube2
+      parentName: sword
+      position: {x: -0, y: -0.016292201, z: 0}
+      rotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+      scale: {x: 0.44516233, y: 0.28948146, z: 2.388412}
+    - name: pCube1
+      parentName: sword
+      position: {x: -0.00022364616, y: 0.006398253, z: 0}
+      rotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+      scale: {x: 0.23739098, y: 3.7115006, z: 0.67665}
+    - name: pCube3
+      parentName: sword
+      position: {x: 0.000025639534, y: -0.039707933, z: 0.000022697448}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.1241326, y: 1.1241326, z: 1.1241326}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -93,13 +209,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
