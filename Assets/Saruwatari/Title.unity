@@ -311,6 +311,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4764737525763946672, guid: b81a02cf75dd8ef4fb2fc558a8ec1d23, type: 3}
+      propertyPath: m_Text
+      value: "\u30D7\u30ED\u30B0\u30E9\u30DE\u30FC\uFF1A\u733F\u6E21\u65EC\u3000\u5CA1\u6751\u6CE2\u7460\u8F1D\u3000\u5C71\u7530\u7FD4\u592A\u90CE\n\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u534A\u7530\u3051\u3093\u3058\u3000\u6C34\u6E9C\u79C0\u592A\u90CE"
+      objectReference: {fileID: 0}
     - target: {fileID: 5798953277687487924, guid: b81a02cf75dd8ef4fb2fc558a8ec1d23, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
