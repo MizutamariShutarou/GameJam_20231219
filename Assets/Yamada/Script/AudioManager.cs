@@ -1,20 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    private AudioSource bgmAudioSource;
-    private AudioSource seAudioSource;
+
+    [SerializeField]AudioSource bgmAudioSource;
+    [SerializeField]AudioSource seAudioSource;
 
     public static AudioManager instance;
 
     // Start is called before the first frame update
     private void Awake()
     {
-        bgmAudioSource.Stop();
-        seAudioSource.Stop();
-
         if (instance == null)
         {
             instance = this;
@@ -26,7 +25,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlayBgm(AudioClip clip)
+    public void PlayBGM(AudioClip clip)
     {
         bgmAudioSource.clip = clip;
 
@@ -38,7 +37,7 @@ public class AudioManager : MonoBehaviour
         bgmAudioSource.Play();
     }
 
-    public void PlaySe(AudioClip clip)
+    public void PlaySE(AudioClip clip)
     {
         seAudioSource.clip = clip;
 

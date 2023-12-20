@@ -4,6 +4,6 @@ public enum SceneType
     Main,
     prologue,
     Dream,
-    Real,
+    RealWorld,
     Result
 }
