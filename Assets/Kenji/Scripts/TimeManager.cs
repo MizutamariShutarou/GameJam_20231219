@@ -7,13 +7,13 @@ public class TimeManager : MonoBehaviour
 {
 
     //　トータル制限時間
-    private float totalTime;
+    static float totalTime;
     //　制限時間（分）
     [SerializeField]
-    private int minute;
+    static int minute = 3;
     //　制限時間（秒）
     [SerializeField]
-    private float seconds;
+    static float seconds;
     //　前回Update時の秒数
     private float oldSeconds;
     private Text TimeText;
