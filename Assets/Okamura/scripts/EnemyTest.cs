@@ -1,18 +1,15 @@
 using DG.Tweening;
 using System.Collections;
 using Unity.Collections;
-using UnityEditor;
 using UnityEngine;
 
 public class EnemyTest : MonoBehaviour, IDamage
 {
-    [Tooltip("スコアの種類")]
-    [SerializeField] int[] _scores = { 30, 20, 10}; 
-    [Tooltip("現在のスコア")]
-    [SerializeField] int _score = 20;
     [Tooltip("エネミーのHPの種類")]
-    [SerializeField] float[] _hps = {3, 2, 1 };
-    [Tooltip("現在のエネミーのHP")]
+    [SerializeField] int _score = 100;
+    [Tooltip("エネミーのHPの種類")]
+    [SerializeField] float[] _hps = {1, 2, 3 };
+    [Tooltip("エネミーのHP")]
     [SerializeField] float _hp = 2;
     [Tooltip("プレイヤーに近づく距離")]
     [SerializeField] float _distanceApproach = 10f;
@@ -30,8 +27,6 @@ public class EnemyTest : MonoBehaviour, IDamage
     [SerializeField] float[] _atkDmgs = { 3, 6, 12 };
     [Tooltip("エネミーの攻撃力")]
     [SerializeField, ReadOnly] float _dmg;
-    [Tooltip("タックルの突進距離の補正値")]
-    [SerializeField] float _tackleValue = 1.1f;
     [Tooltip("タックルの軌道")]
     [SerializeField] Ease _ease = Ease.OutElastic;
     [Tooltip("ダメージを受けた時のノックバックの強さ")]
@@ -39,6 +34,7 @@ public class EnemyTest : MonoBehaviour, IDamage
     [Tooltip("ダメージを受けた時のノックバックのy座標")]
     [SerializeField] float _knockbackY = 1f;
     GameObject _player;
+    Spawner _spawner;
     ScoreManager _scoreManager;
     Rigidbody _rb;
     MeshRenderer _meshRen;
@@ -51,7 +47,7 @@ public class EnemyTest : MonoBehaviour, IDamage
         _dmg = _atkDmgs[Random.Range(0, _atkDmgs.Length - 1)];
         _scoreManager = GameObject.FindWithTag("ScoreManager").GetComponent<ScoreManager>();
         _hp = _hps[GameManager.Instance.DreamLevel / 2];
-        _score = _scores[GameManager.Instance.DreamLevel / 2];
+        _spawner = GameObject.Find("Spawner").GetComponent<Spawner>();
     }
     void Update()
     {
@@ -109,7 +105,7 @@ public class EnemyTest : MonoBehaviour, IDamage
     
     IEnumerator ITackle(Vector3 attackVec, float flo, float rayAppear)
     {
-        _rb.transform.DOMove((_player.transform.position - attackVec.normalized + new Vector3(0, _knockbackY, 0) * _tackleValue), flo).SetEase(_ease);
+        _rb.transform.DOMove(_player.transform.position - attackVec.normalized, flo).SetEase(_ease);
         yield return new WaitForSeconds(rayAppear);
         RaycastHit hit;
         if(Physics.SphereCast(transform.position, 0.5f, transform.forward, out hit, 0.5f, LayerMask.GetMask("Player")))
@@ -151,6 +147,7 @@ public class EnemyTest : MonoBehaviour, IDamage
     void DeathEnemy()
     {
         _scoreManager.AddScore(_score);
+        _spawner.DecreaseEnmCnt();
         if (_deathEffect != null)
         {
             _deathEffect.transform.position = _rb.transform.position;
