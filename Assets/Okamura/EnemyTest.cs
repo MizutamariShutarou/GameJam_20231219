@@ -79,7 +79,7 @@ public class EnemyTest : MonoBehaviour
         {//攻撃処理
             if(_enemy == Enemystate.EnemyA)
             {
-                StartCoroutine(ITackle(attackVec, 0.2f, 0f));
+                StartCoroutine(ITackle(attackVec, 0.4f, 0f));
             }
             else if (_enemy == Enemystate.EnemyB)
             {
@@ -95,15 +95,17 @@ public class EnemyTest : MonoBehaviour
         _rb.transform.DOMove(_player.transform.position - attackVec.normalized, flo).SetEase(_ease);
         yield return new WaitForSeconds(rayAppear);
         //エネミーの攻撃判定ができてないので作る
-        //RaycastHit hit;
-        //Physics.SphereCast(_rb.position, 3f, _rb.transform.forward, out hit, 0.1f, LayerMask.GetMask("Player"));
-        ///Debug.Log(hit.transform.name);/
+        RaycastHit hit;
+        if(Physics.SphereCast(transform.position, 0.5f, transform.forward, out hit, 0.5f, LayerMask.GetMask("player")))
+        {
+            Debug.Log(hit.transform.name);
+        }
     }
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(transform.position + transform.forward * 0.1f, 1.5f);
-    //}
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position + transform.forward * 0.5f, 0.5f);
+    }
     IEnumerator IAtkCt()//（暫定）攻撃のクールタイム実装部
     {
         _attackable = false;
