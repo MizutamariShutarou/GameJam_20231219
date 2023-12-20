@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyTest : MonoBehaviour, IDamage
@@ -28,6 +29,8 @@ public class EnemyTest : MonoBehaviour, IDamage
     [SerializeField] Ease _ease = Ease.OutElastic;
     [Tooltip("ダメージを受けた時のノックバックの強さ")]
     [SerializeField] float _knockbackValue = 0.7f;
+    [Tooltip("ダメージを受けた時のノックバックのy座標")]
+    [SerializeField] float _knockbackY = 1f;
     GameObject _player;
     Rigidbody _rb;
     Material _material;
@@ -98,9 +101,10 @@ public class EnemyTest : MonoBehaviour, IDamage
         _rb.transform.DOMove(_player.transform.position - attackVec.normalized, flo).SetEase(_ease);
         yield return new WaitForSeconds(rayAppear);
         RaycastHit hit;
-        if(Physics.SphereCast(transform.position, 0.5f, transform.forward, out hit, 0.5f, LayerMask.GetMask("player")))
+        if(Physics.SphereCast(transform.position, 0.5f, transform.forward, out hit, 0.5f, LayerMask.GetMask("Player")))
         {
-            //ここにplayerのダメージ処理の関数を呼び出す
+            hit.collider.gameObject.TryGetComponent(out IDamage player);
+            player.AddDamage(_dmg);
             Debug.Log(hit.transform.name);
         }
     }
@@ -126,7 +130,7 @@ public class EnemyTest : MonoBehaviour, IDamage
     }
     IEnumerator IDamaged(float knockbackTime)
     {
-        _rb.transform.DOMove((-_rb.transform.forward + new Vector3(0, _rb.position.y,0)) * _knockbackValue, knockbackTime);
+        _rb.transform.DOMove((-_rb.transform.forward + new Vector3(0, _knockbackY, 0 )) * _knockbackValue, knockbackTime);
         yield return new WaitForSeconds(knockbackTime);
         if (_hp <= 0)
         {
