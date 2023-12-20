@@ -27,7 +27,7 @@ public class ScoreManager : MonoBehaviour
         _score = Mathf.Min(_score + score, _maxScore);  // _maxScore でカンストさせる
         if (oldScore != _maxScore)
         {
-            //このように書いてもよい
+            //スコアを連続的に数値が増えるのを視覚的にわかるように表示している
             DOTween.To(() => oldScore, x =>
             {
                 oldScore = x;
@@ -36,9 +36,5 @@ public class ScoreManager : MonoBehaviour
             Debug.Log("得点更新完了");
         }
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
