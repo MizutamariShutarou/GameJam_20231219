@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     private GameObject _player = default;
 
     [SerializeField]
+    private TimeManager _timeManager = default;
+
+    [SerializeField]
     private Fade _fade = default;
 
     private PlayerManager _playerManager = default;
@@ -23,7 +26,8 @@ public class GameManager : MonoBehaviour
 
     public PlayerManager PlayerManager => _playerManager;
 
-     
+    public TimeManager TimeManager => _timeManager; 
+
     private int _dreamLevel;
     public int DreamLevel => _dreamLevel;
 
@@ -39,8 +43,14 @@ public class GameManager : MonoBehaviour
         else
         {
             _instance = GetComponent<GameManager>();
-            _playerManager = _player.GetComponent<PlayerManager>();
-            _playerManager.Initialize();
+            if(_player != null)
+            {
+                _playerManager = _player.GetComponent<PlayerManager>();
+                if(_playerManager != null)
+                {
+                    _playerManager.Initialize();
+                }
+            }
             DontDestroyOnLoad(gameObject);
         }
     }
