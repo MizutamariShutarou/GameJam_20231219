@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DreamManager : MonoBehaviour
 {
+    private bool _isStart = default;
     private bool _isChanged = default;
     void Start()
     {
@@ -17,8 +18,14 @@ public class DreamManager : MonoBehaviour
         {
             return;
         }
+        if (GameManager.Instance.TimeManager.TotalTime < 60 || PlayerParameterController.HP <= 0)
+        {
+            SceneStateManager.instance.LoadScene(SceneType.Result);
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            GameManager.Instance.TimeManager.DecreaseTimere();
             SceneStateManager.instance.LoadScene(SceneType.RealWorld);
             _isChanged = true;
         }
