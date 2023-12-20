@@ -18,14 +18,14 @@ public class DreamManager : MonoBehaviour
         {
             return;
         }
-        if (GameManager.Instance.TimeManager.TotalTime < 60 || PlayerParameterController.HP <= 0)
+        if (PlayerParameterController.HP <= 0)
         {
             SceneStateManager.instance.LoadScene(SceneType.Result);
             return;
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GameManager.Instance.TimeManager.ReduceTimere();
+            //GameManager.Instance.TimeManager.ReduceTimere();
             SceneStateManager.instance.LoadScene(SceneType.RealWorld);
             _isChanged = true;
         }
