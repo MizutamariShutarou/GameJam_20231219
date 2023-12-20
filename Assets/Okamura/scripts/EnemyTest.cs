@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class EnemyTest : MonoBehaviour, IDamage
 {
@@ -29,7 +30,9 @@ public class EnemyTest : MonoBehaviour, IDamage
     [SerializeField] float _knockbackValue = 0.7f;
     [Tooltip("ダメージを受けた時のノックバックのy座標")]
     [SerializeField] float _knockbackY = 1f;
+    [SerializeField] int _score = 100;
     GameObject _player;
+    ScoreManager _scoreManager;
     Rigidbody _rb;
     Material _material;
     bool _attackable = true;
@@ -39,6 +42,7 @@ public class EnemyTest : MonoBehaviour, IDamage
         _rb = GetComponent<Rigidbody>();
         _material = GetComponent<Material>();
         _dmg = _atkDmgs[Random.Range(0, _atkDmgs.Length - 1)];
+        _scoreManager = GameObject.FindWithTag("ScoreManager").GetComponent<ScoreManager>();
     }
     void Update()
     {
@@ -137,7 +141,7 @@ public class EnemyTest : MonoBehaviour, IDamage
     }
     void DeathEnemy()
     {
-        //エネミーのキルカウントを増やす処理を呼ぶ
+        _scoreManager.AddScore(_score);
         if (_deathEffect != null)
         {
             _deathEffect.transform.position = _rb.transform.position;
@@ -150,5 +154,4 @@ public class EnemyTest : MonoBehaviour, IDamage
         }
         Destroy(this.gameObject);
     }
-
 }
