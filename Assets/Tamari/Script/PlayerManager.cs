@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerParameterController), typeof(PlayerController), typeof(Rigidbody))]
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : MonoBehaviour, IDamage
 {
     //static PlayerManager _instance = default;
     //public PlayerManager Instance => _instance;
@@ -16,6 +16,15 @@ public class PlayerManager : MonoBehaviour
     public PlayerParameterController PlayerParameterController => _playerParameterController;
 
     public PlayerController PlayerController => _playerController;
+
+    public void AddDamage(float damageValue)
+    {
+        _playerParameterController.ChangeHp(damageValue);
+        if(_playerParameterController.HP <= 0)
+        {
+            Debug.Log("Ž€–S");
+        }
+    }
 
     //private void Awake()
     //{
