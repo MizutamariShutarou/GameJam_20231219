@@ -24,9 +24,9 @@ public class Fade : MonoBehaviour
         
     }
 
-    public void FadeIn()
+    public void FadeIn(Action callback)
     {
-        _image.DOFade(1f, _fadeInTime);
+        _image.DOFade(1f, _fadeInTime).OnComplete(() => ActiveEvent(callback));
     }
 
     public void FadeOut(Action callback)
