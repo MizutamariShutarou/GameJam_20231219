@@ -21,6 +21,6 @@ public class EnemyDestroyedTest : MonoBehaviour
             Destroy(_material);
             _material = null;
         }
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 }

@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using Unity.Collections;
 using UnityEngine;
 
-public class EnemyTest : MonoBehaviour
+public class EnemyTest : MonoBehaviour, IDamage
 {
     [Tooltip("エネミーのHP")]
-    [SerializeField] int _hp = 2;
+    [SerializeField] float _hp = 2;
     [Tooltip("プレイヤーに近づく距離")]
     [SerializeField] float _distanceApproach = 10f;
     [Tooltip("エネミーの移動誤差")]
@@ -24,7 +24,10 @@ public class EnemyTest : MonoBehaviour
     [SerializeField] float[] _atkDmgs = { 3, 6, 12 };
     [Tooltip("エネミーの攻撃力")]
     [SerializeField, ReadOnly] float _dmg;
+    [Tooltip("タックルの軌道")]
     [SerializeField] Ease _ease = Ease.OutElastic;
+    [Tooltip("ダメージを受けた時のノックバックの強さ")]
+    [SerializeField] float _knockbackValue = 0.7f;
     GameObject _player;
     Rigidbody _rb;
     Material _material;
@@ -94,10 +97,10 @@ public class EnemyTest : MonoBehaviour
     {
         _rb.transform.DOMove(_player.transform.position - attackVec.normalized, flo).SetEase(_ease);
         yield return new WaitForSeconds(rayAppear);
-        //エネミーの攻撃判定ができてないので作る
         RaycastHit hit;
         if(Physics.SphereCast(transform.position, 0.5f, transform.forward, out hit, 0.5f, LayerMask.GetMask("player")))
         {
+            //ここにplayerのダメージ処理の関数を呼び出す
             Debug.Log(hit.transform.name);
         }
     }
@@ -113,14 +116,17 @@ public class EnemyTest : MonoBehaviour
         _attackable = true;
     }
     //エネミーへの攻撃が命中した際に呼ぶ
+    public void AddDamage(float damageValue)
+    {
+        _hp -= damageValue;
+        StartCoroutine(IDamaged(0.3f));
+    }
     public void Damaged(int dmg)
     {
-        _hp -= dmg;
-        StartCoroutine(IDamaged(0.3f));
     }
     IEnumerator IDamaged(float knockbackTime)
     {
-        _rb.transform.DOMove(-_rb.transform.forward + new Vector3(0, _rb.position.y,0), knockbackTime);
+        _rb.transform.DOMove((-_rb.transform.forward + new Vector3(0, _rb.position.y,0)) * _knockbackValue, knockbackTime);
         yield return new WaitForSeconds(knockbackTime);
         if (_hp <= 0)
         {
@@ -142,4 +148,5 @@ public class EnemyTest : MonoBehaviour
         }
         Destroy(this.gameObject);
     }
+
 }
