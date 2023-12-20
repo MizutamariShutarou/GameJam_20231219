@@ -45,9 +45,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void SetLevel()
     {
         _dreamLevel = UnityEngine.Random.Range(1, MaxLevel);
+        Debug.Log(_dreamLevel);
     }
 
     public void FadeIn(Action action)
