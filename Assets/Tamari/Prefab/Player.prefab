@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4121014845759940093}
   - component: {fileID: 7055163986498953655}
   - component: {fileID: 8824557149404116375}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 5424130079601367292}
   - component: {fileID: 8561658506935959999}
   - component: {fileID: 1345520227341542485}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,6 +297,10 @@ PrefabInstance:
     - target: {fileID: 1030497752792807385, guid: 6c2f2364a82adfd428e867464df0ed4b, type: 3}
       propertyPath: m_Name
       value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030497752792807385, guid: 6c2f2364a82adfd428e867464df0ed4b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8132208261566998569, guid: 6c2f2364a82adfd428e867464df0ed4b, type: 3}
       propertyPath: m_LocalPosition.x

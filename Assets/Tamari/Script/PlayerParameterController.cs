@@ -29,9 +29,16 @@ public class PlayerParameterController : MonoBehaviour
         _rotateNum = _playerParam.RotateNum;
     }
 
-    public void ChangeHp(float healAmount)
+    public void Damage(float damageValue)
     {
-        _hp = (0 < healAmount) ? Mathf.Min(_playerParam.MaxHP, _hp + healAmount) : Mathf.Max(0, _hp + healAmount);
+        _hp -= damageValue;
+        Debug.Log(_hp);
+    }
+
+    public void ChangeHp(float changeAmount)
+    {
+        _hp = (0 < changeAmount) ? Mathf.Min(_playerParam.MaxHP, _hp + changeAmount) : Mathf.Max(0, _hp + changeAmount);
+        Debug.Log(_hp);
     }
 
     public void ChangeAttackPower(float changeAttackPowerAmount)
