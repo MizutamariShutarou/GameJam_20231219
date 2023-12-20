@@ -33,6 +33,9 @@ public class EnemyTest : MonoBehaviour, IDamage
     [SerializeField] float _knockbackValue = 0.7f;
     [Tooltip("ダメージを受けた時のノックバックのy座標")]
     [SerializeField] float _knockbackY = 1f;
+    [SerializeField] float _gizmoRadius = 0.5f;
+    [SerializeField] float _gizmoLength = 1f;
+    [SerializeField] Vector3 _gizmoY = new Vector3(0, 1f, 0);
     GameObject _player;
     Spawner _spawner;
     ScoreManager _scoreManager;
@@ -108,7 +111,7 @@ public class EnemyTest : MonoBehaviour, IDamage
         _rb.transform.DOMove(_player.transform.position - attackVec.normalized, flo).SetEase(_ease);
         yield return new WaitForSeconds(rayAppear);
         RaycastHit hit;
-        if(Physics.SphereCast(transform.position, 0.5f, transform.forward, out hit, 0.5f, LayerMask.GetMask("Player")))
+        if(Physics.SphereCast(transform.position + _gizmoY, _gizmoRadius, transform.forward, out hit, _gizmoLength, LayerMask.GetMask("Player")))
         {
             hit.collider.gameObject.TryGetComponent(out IDamage player);
             if (player != null) 
@@ -121,7 +124,7 @@ public class EnemyTest : MonoBehaviour, IDamage
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position + transform.forward * 0.5f, 0.5f);
+        Gizmos.DrawWireSphere(transform.position + _gizmoY + transform.forward * _gizmoLength, _gizmoRadius);
     }
     IEnumerator IAtkCt()//（暫定）攻撃のクールタイム実装部
     {
