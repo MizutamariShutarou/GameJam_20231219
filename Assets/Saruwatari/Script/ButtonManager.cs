@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cysharp.Threading.Tasks;
+using System.Threading.Tasks;
+using System;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -8,14 +11,14 @@ public class ButtonManager : MonoBehaviour
     public GameObject Creditimag;
     public GameObject Result;
 
-    public GameManager gameManager;
+    [SerializeField]
+    Fade _fade;
 
-    public void GameStart()
+    async void GameStart()
     {
+        _fade.FadeIn();
+        await UniTask.Delay(TimeSpan.FromSeconds(_fade._fadeOutTime));
         SceneStateManager.instance.LoadScene(SceneType.Main);
-        Title.SetActive(false);
-
-        
     }
 
     public void Credit()
@@ -57,15 +60,5 @@ public class ButtonManager : MonoBehaviour
     public void ToResult()
     {
         SceneStateManager.instance.LoadScene(SceneType.Result);
-    }
-
-    private void Update()
-    {
-        Test(gameManager.DreamLevel);
-    }
-
-    void Test(int A)
-    {
-        Debug.Log(A);
     }
 }
