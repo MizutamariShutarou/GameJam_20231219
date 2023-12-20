@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
-public class TimeManager : MonoBehaviour
+public class TimeMana : MonoBehaviour
 {
 
     //　トータル制限時間
@@ -17,8 +17,6 @@ public class TimeManager : MonoBehaviour
     //　前回Update時の秒数
     private float oldSeconds;
     private Text TimeText;
-
-    public float TotalTime => totalTime;
 
     void Start()
     {
@@ -54,11 +52,10 @@ public class TimeManager : MonoBehaviour
             Debug.Log("制限時間終了");
         }
     }
-    public void DecreaseTimere()
+    public void ReduceTimere()
     {
         //　再設定
         minute = (int)totalTime / 60;
         seconds = totalTime - 60f;
-        Debug.Log(totalTime);
     }
 }
