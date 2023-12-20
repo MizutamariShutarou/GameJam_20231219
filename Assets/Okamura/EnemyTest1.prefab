@@ -62,7 +62,8 @@ MonoBehaviour:
   _dmg: 0
   _ease: 24
   _knockbackValue: 0.7
-  _knockbackY: 1
+  _knockbackY: 1.5
+  _score: 100
 --- !u!33 &7031631603511735054
 MeshFilter:
   m_ObjectHideFlags: 0
