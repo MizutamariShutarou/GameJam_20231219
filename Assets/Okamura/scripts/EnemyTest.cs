@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class EnemyTest : MonoBehaviour, IDamage
 {
+    [Tooltip("エネミーのHPの種類")]
+    [SerializeField] int _score = 100;
+    [Tooltip("エネミーのHPの種類")]
+    [SerializeField] float[] _hps = {1, 2, 3 };
     [Tooltip("エネミーのHP")]
     [SerializeField] float _hp = 2;
     [Tooltip("プレイヤーに近づく距離")]
@@ -29,8 +33,8 @@ public class EnemyTest : MonoBehaviour, IDamage
     [SerializeField] float _knockbackValue = 0.7f;
     [Tooltip("ダメージを受けた時のノックバックのy座標")]
     [SerializeField] float _knockbackY = 1f;
-    [SerializeField] int _score = 100;
     GameObject _player;
+    Spawner _spawner;
     ScoreManager _scoreManager;
     Rigidbody _rb;
     MeshRenderer _meshRen;
@@ -42,6 +46,8 @@ public class EnemyTest : MonoBehaviour, IDamage
         _meshRen = GetComponent<MeshRenderer>();
         _dmg = _atkDmgs[Random.Range(0, _atkDmgs.Length - 1)];
         _scoreManager = GameObject.FindWithTag("ScoreManager").GetComponent<ScoreManager>();
+        _hp = _hps[GameManager.Instance.DreamLevel / 2];
+        _spawner = GameObject.Find("Spawner").GetComponent<Spawner>();
     }
     void Update()
     {
@@ -141,6 +147,7 @@ public class EnemyTest : MonoBehaviour, IDamage
     void DeathEnemy()
     {
         _scoreManager.AddScore(_score);
+        _spawner.DecreaseEnmCnt();
         if (_deathEffect != null)
         {
             _deathEffect.transform.position = _rb.transform.position;

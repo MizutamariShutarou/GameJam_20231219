@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 906d9d8048d82374695e087c97a57719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemyLimit: 5
   _spawnCTs:
   - 7
   - 6
@@ -104,7 +105,13 @@ MonoBehaviour:
   - 3
   - 2
   _enteredSpawnCT: 2
-  _spawnObj: {fileID: 8016414876205605004, guid: cbe656f85ed6e46478101ac3103408e0, type: 3}
+  _spawnObj:
+  - {fileID: 2967300538962557012, guid: 9df2031474d9da54ca82c61626179d66, type: 3}
+  - {fileID: 3947328292941936424, guid: 0fba2172bd077b54191599dafc624c42, type: 3}
+  - {fileID: 2490559653339206504, guid: bb59496cce7bdef4899d46a4086d7156, type: 3}
+  - {fileID: 1849259416890336475, guid: b3f66f38f5246f742b8f4d7c47204042, type: 3}
+  - {fileID: 8493773451000380175, guid: 671c7e954fb4770458fd6d440260856f, type: 3}
+  - {fileID: 3134339946523080417, guid: 43070136806cbd4498a2be269ecd7726, type: 3}
   _spawnY: 1.5
   _spawnSize: {x: 5, y: 5, z: 5}
-  _spawnMinDistance: 3
+  _spawnMinDistance: 7
