@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 07b385ae92d115c4dbaa1cd09580e656, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.4483385
+      value: -4.9960794
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 07b385ae92d115c4dbaa1cd09580e656, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 07b385ae92d115c4dbaa1cd09580e656, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.4731617
+      value: -16.541317
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 07b385ae92d115c4dbaa1cd09580e656, type: 3}
       propertyPath: m_LocalRotation.w
@@ -175,3 +175,4 @@ MonoBehaviour:
   _knockbackY: 1
   _gizmoRadius: 1.71
   _gizmoLength: 1.63
+  _gizmoY: {x: 0, y: 1, z: 0}

@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class EnemyTest : MonoBehaviour, IDamage
 {
+    [Tooltip("エネミーのスコアの種類")]
+    [SerializeField] int[] _scores = {10, 10, 20, 30 };
+    [Tooltip("エネミーのスコア")]
+    [SerializeField] int _score = 20;
     [Tooltip("エネミーのHPの種類")]
-    [SerializeField] int _score = 100;
-    [Tooltip("エネミーのHPの種類")]
-    [SerializeField] float[] _hps = {1, 2, 3 };
+    [SerializeField] float[] _hps = { 1, 1, 2, 3 };
     [Tooltip("エネミーのHP")]
     [SerializeField] float _hp = 2;
     [Tooltip("プレイヤーに近づく距離")]
@@ -50,6 +52,7 @@ public class EnemyTest : MonoBehaviour, IDamage
         _dmg = _atkDmgs[Random.Range(0, _atkDmgs.Length - 1)];
         _scoreManager = GameObject.FindWithTag("ScoreManager").GetComponent<ScoreManager>();
         _hp = _hps[GameManager.Instance.DreamLevel / 2];
+        _score = _scores[GameManager.Instance.DreamLevel / 2];
         //_spawner = GameObject.FindWithTag("Spawner");
     }
     void Update()
