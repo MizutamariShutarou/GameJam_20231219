@@ -5,19 +5,19 @@ public class PlayerParameterController : MonoBehaviour
     [SerializeField, Header("パラメータデータ")]
     PlayerParameter _playerParam = default;
 
-    private float _moveSpeed = default;
+    private static float _moveSpeed = default;
 
-    private float _hp = default;
+    private static float _hp = default;
 
-    private float _attackPower = default;
+    private static float _attackPower = default;
 
     private float _rotateNum = default;
 
-    public float MoveSpeed => _moveSpeed;
+    public static float MoveSpeed => _moveSpeed;
 
-    public float HP => _hp;
+    public static float HP => _hp;
 
-    public float AttackPower => _attackPower;
+    public static float AttackPower => _attackPower;
 
     public float RotateNum => _rotateNum;
 
@@ -32,7 +32,6 @@ public class PlayerParameterController : MonoBehaviour
     public void ChangeHp(float healAmount)
     {
         _hp = (0 < healAmount) ? Mathf.Min(_playerParam.MaxHP, _hp + healAmount) : Mathf.Max(0, _hp + healAmount);
-        Debug.Log(_hp);
     }
 
     public void ChangeAttackPower(float changeAttackPowerAmount)
