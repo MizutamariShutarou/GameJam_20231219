@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class EnemyTest : MonoBehaviour, IDamage
 {
+    [Tooltip("エネミーのスコアの種類")]
+    [SerializeField] int[] _scores = {10, 10, 20, 30 };
+    [Tooltip("エネミーのスコア")]
+    [SerializeField] int _score = 20;
     [Tooltip("エネミーのHPの種類")]
-    [SerializeField] int _score = 100;
-    [Tooltip("エネミーのHPの種類")]
-    [SerializeField] float[] _hps = {1, 2, 3 };
+    [SerializeField] float[] _hps = { 1, 1, 2, 3 };
     [Tooltip("エネミーのHP")]
     [SerializeField] float _hp = 2;
     [Tooltip("プレイヤーに近づく距離")]
@@ -37,7 +39,7 @@ public class EnemyTest : MonoBehaviour, IDamage
     [SerializeField] float _gizmoLength = 1f;
     [SerializeField] Vector3 _gizmoY = new Vector3(0, 1f, 0);
     GameObject _player;
-    Spawner _spawner;
+    //GameObject _spawner;
     ScoreManager _scoreManager;
     Rigidbody _rb;
     MeshRenderer _meshRen;
@@ -50,7 +52,8 @@ public class EnemyTest : MonoBehaviour, IDamage
         _dmg = _atkDmgs[Random.Range(0, _atkDmgs.Length - 1)];
         _scoreManager = GameObject.FindWithTag("ScoreManager").GetComponent<ScoreManager>();
         _hp = _hps[GameManager.Instance.DreamLevel / 2];
-        _spawner = GameObject.Find("Spawner").GetComponent<Spawner>();
+        _score = _scores[GameManager.Instance.DreamLevel / 2];
+        //_spawner = GameObject.FindWithTag("Spawner");
     }
     void Update()
     {
@@ -136,12 +139,13 @@ public class EnemyTest : MonoBehaviour, IDamage
     public void AddDamage(float damageValue)
     {
         _hp -= damageValue;
-        StartCoroutine(IDamaged(0.3f));
+        IDamaged(0.3f);
     }
-    IEnumerator IDamaged(float knockbackTime)
+    void IDamaged(float knockbackTime)
     {
-        _rb.transform.DOMove((-_rb.transform.forward + new Vector3(0, _knockbackY, 0 )) * _knockbackValue, knockbackTime);
-        yield return new WaitForSeconds(knockbackTime);
+        transform.DOComplete();
+        _rb.AddForce(_rb.transform.forward * knockbackTime, ForceMode.Impulse);
+        Debug.Log("knockbacked");
         if (_hp <= 0)
         {
             DeathEnemy();
@@ -150,7 +154,8 @@ public class EnemyTest : MonoBehaviour, IDamage
     void DeathEnemy()
     {
         _scoreManager.AddScore(_score);
-        _spawner.DecreaseEnmCnt();
+        //Debug.Log(_spawner);
+        //_spawner.GetComponent<Spawner>().DecreaseEnmCnt();
         if (_deathEffect != null)
         {
             _deathEffect.transform.position = _rb.transform.position;
