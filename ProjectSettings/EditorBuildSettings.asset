@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Saruwatari/Title.unity
+    guid: 0fb7ba6a8e4fb164487006c49fdf200a
+  - enabled: 1
+    path: Assets/Saruwatari/Main.unity
+    guid: a2518ae6976f99d4aa3cea2b1831458c
+  - enabled: 1
+    path: Assets/Saruwatari/Dream.unity
+    guid: cca493cc12e2a914994d1a6ed17600f8
+  - enabled: 1
+    path: Assets/Saruwatari/Real.unity
+    guid: 00385f671d19047419185173df0ee6b0
+  - enabled: 1
+    path: Assets/Saruwatari/Result.unity
+    guid: 09d5fa1f719775a46901f53521d21251
   m_configObjects: {}
