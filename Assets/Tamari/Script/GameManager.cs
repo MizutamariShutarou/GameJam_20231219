@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
 
     public PlayerManager PlayerManager => _playerManager;
 
+     
+    public int DreamLevel;
+
     private void Awake()
     {
         if (_instance != null)
@@ -30,5 +33,10 @@ public class GameManager : MonoBehaviour
             _playerManager.Initialize();
             DontDestroyOnLoad(gameObject);
         }
+    }
+
+    public void Start()
+    {
+        DreamLevel =  Random.Range(1,6);
     }
 }

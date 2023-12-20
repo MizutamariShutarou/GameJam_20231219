@@ -8,10 +8,14 @@ public class ButtonManager : MonoBehaviour
     public GameObject Creditimag;
     public GameObject Result;
 
+    public GameManager gameManager;
+
     public void GameStart()
     {
         SceneStateManager.instance.LoadScene(SceneType.Main);
         Title.SetActive(false);
+
+        
     }
 
     public void Credit()
@@ -46,11 +50,22 @@ public class ButtonManager : MonoBehaviour
         
     public void ToDream()
     {
+
         SceneStateManager.instance.LoadScene(SceneType.Dream);
     }
 
     public void ToResult()
     {
         SceneStateManager.instance.LoadScene(SceneType.Result);
+    }
+
+    private void Update()
+    {
+        Test(gameManager.DreamLevel);
+    }
+
+    void Test(int A)
+    {
+        Debug.Log(A);
     }
 }
